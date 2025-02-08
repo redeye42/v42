@@ -9,7 +9,7 @@
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #ffe4e1;
-            margin-top: 50px;
+            margin: 50px 10px;
         }
         h1 {
             font-size: 24px;
@@ -24,12 +24,14 @@
         .container {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Добавлено, чтобы кнопки не уезжали */
             gap: 20px;
             margin-top: 20px;
         }
         .button {
-            width: 100px;
-            height: 50px;
+            min-width: 100px;
+            min-height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,6 +40,7 @@
             cursor: pointer;
             border: none;
             transition: all 0.3s ease;
+            white-space: nowrap; /* Чтобы текст не переносился */
         }
         .yes {
             background-color: green;
@@ -56,7 +59,6 @@
 </head>
 <body>
 
-    <!-- Гиф с котиками под заголовком -->
     <div class="gif-container" id="firstGif">
         <video class="gif" autoplay loop muted>
             <source src="https://files.catbox.moe/jerto3.mp4" type="video/mp4">
@@ -72,7 +74,6 @@
 
     <h1 id="message">Ну да, а как же еще</h1>
 
-    <!-- Гиф под финальным текстом -->
     <div class="gif-container" id="finalGif" style="display: none;">
         <video class="gif" autoplay loop muted>
             <source src="https://files.catbox.moe/4sbepa.mp4" type="video/mp4">
@@ -105,9 +106,9 @@
         yesButton.addEventListener("click", function() {
             document.querySelector("h1").style.display = "none";
             document.querySelector(".container").style.display = "none";
-            firstGif.style.display = "none"; // Скрываем первый гиф
+            firstGif.style.display = "none";
             message.style.display = "block";
-            finalGif.style.display = "block"; // Показываем второй гиф
+            finalGif.style.display = "block";
         });
     </script>
 
